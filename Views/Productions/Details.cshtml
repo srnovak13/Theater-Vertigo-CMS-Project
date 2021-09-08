@@ -1,0 +1,35 @@
+@model TheatreCMS3.Areas.Prod.Models.Production
+
+@{
+  ViewBag.Title = "Details";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+  <h2 class="prod-header">Production Details</h2>
+</div>
+
+<div class="prod-form">
+  <div class="prod-form-div">@Html.DisplayFor(model => model.Title)</div>
+  <div class="prod-form-div">
+    <img alt="@Model.Title" src="/ProductionPhotos/GetImage/@Model.ProPhotoID" class="img-thumbnail bg-dark" />
+  </div>
+  <div class="prod-form-div">@Html.DisplayFor(model => model.Description)</div>
+  <div class="prod-form-div">Written by @Html.DisplayFor(model => model.Playwright)</div>
+  <div class="prod-form-div">Runtime: @Html.DisplayFor(model => model.Runtime)</div>
+  <div class="prod-form-div">Opening Day: @Html.DisplayFor(model => model.OpeningDay)</div>
+  <div class="prod-form-div">Closing Day: @Html.DisplayFor(model => model.ClosingDay)</div>
+  <div class="prod-form-div">Evening Showtime: @Html.DisplayFor(model => model.ShowTimeEve)</div>
+  <div class="prod-form-div">Matte Showtime: @Html.DisplayFor(model => model.ShowTimeMat)</div>
+  <div class="prod-form-div">Season: @Html.DisplayFor(model => model.Season)</div>
+  <div class="prod-form-div">World Premiere?: @Html.DisplayFor(model => model.IsWorldPremiere)</div>
+  <div class="prod-form-div">Get tickets: @Html.DisplayFor(model => model.TicketLink)</div>
+
+  <div class="prod-form-div">
+    <a href="@Url.Action("Index")" class="btn prod-btn btn-block">Back To List</a>
+  </div>
+
+  <div class="prod-form-div">
+    <a href="@Url.Action("Delete", new { id = Model.ProductionId })" class="btn prod-btn-danger btn-block"><i class="fas fa-trash"></i> Delete Production</a>
+  </div>
+</div>

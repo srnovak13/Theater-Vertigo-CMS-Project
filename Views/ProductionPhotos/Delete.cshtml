@@ -1,0 +1,43 @@
+@model TheatreCMS3.Areas.Prod.Models.ProductionPhoto
+
+@{
+  ViewBag.Title = "Delete Photo";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+  <h2 class="prod-header">Delete Photo</h2>
+</div>
+
+<p>Are you sure you want to delete this photo?</p>
+
+<div class="prod-form">
+  <div class="prod-form-div font-weight-bolder">@Html.DisplayNameFor(model => model.Title)</div>
+  <div class="prod-form-div">@Html.DisplayFor(model => model.Title)</div>
+  <div class="prod-form-div font-weight-bolder">Production Title</div>
+  <div class="prod-form-div">@Html.DisplayFor(model => model.Production.Title)</div>
+  <div class="prod-form-div">
+    <img alt="@Model.Title" src="/ProductionPhotos/GetImage/@Model.ProPhotoId" class="img-thumbnail bg-dark" />
+  </div>
+  <div class="prod-form-div font-weight-bolder" ">@Html.DisplayNameFor(model => model.Description)</div>
+  <div class="prod-form-div">@Html.DisplayFor(model => model.Description)</div>
+
+  <div class="prod-form-div">
+    <a href="@Url.Action("Index")" class="btn prod-btn btn-block">Back To List</a>
+  </div>
+
+  @using (Html.BeginForm())
+  {
+    @Html.AntiForgeryToken()
+    <div class="prod-form-div">
+      @if (Model.ProPhotoId == Model.Production.ProPhotoID)
+      {
+        <p>You cannot delete this photo because it is set as the default photo for the production '@Model.Production.Title'</p>
+      }
+      else
+      {
+        <button type="submit" class="btn prod-btn-danger btn-block"><i class="fas fa-trash"></i> Delete</button>
+      }
+    </div>
+  }
+</div>
