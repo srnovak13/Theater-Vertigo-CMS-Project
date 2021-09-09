@@ -1,5 +1,5 @@
 # Theater Vertigo CMS Project
-4/19-30/2021
+Aug - Sept. 2021
 ## Introduction
 The Theater Vertigo CMS Project was a two week sprint where my team was tasked with building out a section of a new website for a theater in Portland. We were assigned to a specific portion of the website and tasked to build CRUD functionality, set up permissions and roles, and style the front end. 
 
